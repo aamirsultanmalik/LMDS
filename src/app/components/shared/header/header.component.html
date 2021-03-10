@@ -27,28 +27,19 @@
       fxLayoutAlign="center center"
     >
       <div
-        class="info-message-icon"
-        fxLayout="row"
-        fxLayoutAlign="center center"
-      >
-        <div class="icon" fxLayout="row">
-          <mat-icon class="mat-icon-lg mat-icon material-icons">call</mat-icon>
-        </div>
-        <div class="info-text">
-          <p>Helpline:</p>
-          <span>02(981)336 111</span>
-        </div>
-      </div>
-      <div
         class="main-menu-wrapper-2"
         fxLayout="row"
         fxLayoutAlign="space-between center"
       >
-        <mat-toolbar class="top-navbar top menu">
-          <app-shopping-widgets
-            [shoppingCartItems]="shoppingCartItems"
-          ></app-shopping-widgets>
-        </mat-toolbar>
+      <div class="widget-text">
+        <a
+          fxShow="false"
+          fxShow.gt-xs
+          [routerLink]="['/register']"
+          routerLinkActive="router-link-active"
+          ><mat-icon>person</mat-icon>My Account</a
+        >
+      </div>
       </div>
     </div>
   </div>

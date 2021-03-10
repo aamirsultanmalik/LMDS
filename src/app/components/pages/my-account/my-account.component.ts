@@ -12,4 +12,13 @@ export class MyAccountComponent implements OnInit {
   ngOnInit() {
   }
 
+//   TeacherObj: 
+// -firstname
+// - lastname
+// - location
+// - category
+// - picture
+// - cprCard
+// - dcfTranscript
+
 }
