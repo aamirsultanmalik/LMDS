@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProductService } from 'src/app/components/shared/services/product.service';
 import { Product } from 'src/app/modals/product.model';
 
 @Component({
@@ -11,13 +10,10 @@ export class ProductVerticalComponent implements OnInit {
 
  @Input() products: Product[];
 
-  constructor(private productService: ProductService ) { }
+  constructor() { }
 
   ngOnInit() {
-    this.productService.getProducts()
-    .subscribe (
-    product => this.products = product
-    )
+    
   }
 
 }

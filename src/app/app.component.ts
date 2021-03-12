@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { NgxSpinnerService } from "ngx-spinner";
-import { CartService } from './components/shared/services/cart.service';
 import { SidenavMenu } from './components/shared/sidebar/sidebar-menu.model';
 import { SidebarMenuService } from './components/shared/sidebar/sidebar-menu.service';
 import { CartItem } from './modals/cart-item';
@@ -260,8 +259,8 @@ export class AppComponent {
     }
   ];
 
-  constructor(public router: Router, private cartService: CartService, public sidenavMenuService:SidebarMenuService,private spinner: NgxSpinnerService) {
-    this.cartService.getItems().subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
+  constructor(public router: Router, public sidenavMenuService:SidebarMenuService,private spinner: NgxSpinnerService) {
+    
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.url = event.url;

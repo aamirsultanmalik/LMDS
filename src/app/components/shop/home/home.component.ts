@@ -1,6 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../shared/services/product.service';
-import { Product } from 'src/app/modals/product.model';
+import { environment as env } from "../../../../environments/environment";
+import { DataService } from '../../shared/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -8,31 +9,31 @@ import { Product } from 'src/app/modals/product.model';
   styleUrls: ['./home.component.sass']
 })
 export class HomeComponent implements OnInit {
-  products: Product[];
-  public banners = [];
+  products: any;
+  subscriber:any;
   public slides = [
     { title: 'Huge sale', subtitle: 'Up to 70%', image: 'assets/images/carousel/banner1.jpg' },
-    { title: 'Biggest discount', subtitle: 'Check the promotion', image: 'assets/images/carousel/banner2.jpg' },
-    { title: 'Biggest sale', subtitle: 'Dont miss it', image: 'assets/images/carousel/banner3.jpg' },
-    { title: 'Our best products', subtitle: 'Special selection', image: 'assets/images/carousel/banner4.jpg' },
-    { title: 'Massive sale', subtitle: 'Only for today', image: 'assets/images/carousel/banner5.jpg' }
+    { title: 'Biggest discount', subtitle: 'Check the promotion', image: 'assets/images/carousel/banner1.jpg' },
+    { title: 'Biggest sale', subtitle: 'Dont miss it', image: 'assets/images/carousel/banner1.jpg' },
+    { title: 'Our best products', subtitle: 'Special selection', image: 'assets/images/carousel/banner1.jpg' },
+    { title: 'Massive sale', subtitle: 'Only for today', image: 'assets/images/carousel/banner1.jpg' }
   ];
 
-  constructor(private productService: ProductService) { }
+  constructor(private http: HttpClient,private dataService: DataService) { }
 
   ngOnInit() {
-    this.productService.getBanners()
-    .subscribe(
-      data => this.banners = data
-    );
-
- this.productService.getProducts()
- .subscribe(
-   (product: Product[]) => {
-     this.products = product
-   }
- )
-
+    debugger
+    this.http.get(env.apiUrl+"/topTeachers").subscribe(res=>{
+      debugger
+      if(res){
+        this.products=res;
+      }
+    });
+    this.subscriber=  this.dataService.recieveData();
+    this.subscriber.subscribe(res=>{
+      debugger
+      this.products=res;
+    })
   }
 
 

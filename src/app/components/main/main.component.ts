@@ -1,8 +1,6 @@
 import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
 import {Product} from "../../modals/product.model";
 import {CartItem} from "../../modals/cart-item";
-import {ProductService} from "../shared/services/product.service";
-import {CartService} from "../shared/services/cart.service";
 import { Router, NavigationEnd } from '@angular/router';
 import { SidebarMenuService } from '../shared/sidebar/sidebar-menu.service';
 import { SidenavMenu } from '../shared/sidebar/sidebar-menu.model';
@@ -259,8 +257,8 @@ export class MainComponent implements OnInit {
     }
   ];
 
-  constructor(public router: Router, private cartService: CartService, public sidenavMenuService:SidebarMenuService) {
-    this.cartService.getItems().subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
+  constructor(public router: Router, public sidenavMenuService:SidebarMenuService) {
+    
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.url = event.url;

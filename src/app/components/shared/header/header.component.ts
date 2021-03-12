@@ -1,8 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Product } from 'src/app/modals/product.model';
 import { CartItem } from 'src/app/modals/cart-item';
-import { CartService } from '../services/cart.service';
 import { SidebarMenuService } from '../sidebar/sidebar-menu.service';
+import { HttpClient } from '@angular/common/http';
+import { environment as env } from "../../../../environments/environment";
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -12,37 +14,44 @@ import { SidebarMenuService } from '../sidebar/sidebar-menu.service';
 export class HeaderComponent implements OnInit {
   public sidenavMenuItems:Array<any>;
 
-  public currencies = ['USD', 'EUR'];
-  public currency:any;
-  public flags = [
-    { name:'English', image: 'assets/images/flags/gb.svg' },
-    { name:'German', image: 'assets/images/flags/de.svg' },
-    { name:'French', image: 'assets/images/flags/fr.svg' },
-    { name:'Russian', image: 'assets/images/flags/ru.svg' },
-    { name:'Turkish', image: 'assets/images/flags/tr.svg' }
-  ]
-  public flag:any;
+  categories:any;
+  locations:any;
+  selectedCategory:any="";
+  selectedLocation:any="";
+  tutorName:any="";
 
-  products: Product[];
+  constructor(private http:HttpClient,private dataService: DataService) {
 
-  indexProduct: number;
-  shoppingCartItems: CartItem[] = [];
-
-
-  constructor(private cartService: CartService) {
-    this.cartService.getItems().subscribe(shoppingCartItems => this.shoppingCartItems = shoppingCartItems);
   }
 
   ngOnInit() {
-    this.currency = this.currencies[0];
-    this.flag = this.flags[0];
+    this.http.get(env.apiUrl+"/allCategories").subscribe(res=>{
+      debugger
+      if(res){
+        this.categories=res;
+      }
+    });
+    this.http.get(env.apiUrl+"/allLocations").subscribe(res=>{
+      debugger
+      if(res){
+        this.locations=res;
+      }
+    });
   }
 
-  public changeCurrency(currency){
-    this.currency = currency;
+  Search(){
+    let searchParams= new Object({
+      location: this.selectedLocation,
+      category:this.selectedCategory,
+      tutorName: this.tutorName
+    });
+    this.http.post(env.apiUrl+"/search",searchParams).subscribe(res=>{
+      debugger
+      if(res){
+        this.dataService.sendData(res);
+      }
+    });
   }
-  public changeLang(flag){
-    this.flag = flag;
-  }
+
 
 }

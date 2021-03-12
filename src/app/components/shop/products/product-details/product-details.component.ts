@@ -1,9 +1,7 @@
 import { Component, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { Product } from 'src/app/modals/product.model';
-import { ProductService } from 'src/app/components/shared/services/product.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
-import { CartService } from 'src/app/components/shared/services/cart.service';
 import { SwiperDirective, SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { ProductZoomComponent } from './product-zoom/product-zoom.component';
 
@@ -32,15 +30,13 @@ export class ProductDetailsComponent implements OnInit {
   index: number;
   bigProductImageIndex = 0;
 
-  constructor(private route: ActivatedRoute, public productsService: ProductService, public dialog: MatDialog, private router: Router, private cartService: CartService) {
+  constructor(private route: ActivatedRoute, public dialog: MatDialog, private router: Router) {
     this.route.params.subscribe(params => {
       const id = +params['id'];
-      this.productsService.getProduct(id).subscribe(product => this.product = product)
     });
    }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(product => this.products = product);
 
 
     this.getRelatedProducts();
@@ -112,24 +108,16 @@ public decrement() {
 }
 
 getRelatedProducts() {
-  this.productsService.getProducts()
-  .subscribe(
-    (product: Product[]) => {
-      this.products = product
-    });
+  
 }
 
   // Add to cart
   public addToCart(product: Product, quantity) {
-    if (quantity == 0) return false;
-    this.cartService.addToCart(product, parseInt(quantity));
   }
 
    // Add to cart
    public buyNow(product: Product, quantity) {
-    if (quantity > 0)
-      this.cartService.addToCart(product,parseInt(quantity));
-      this.router.navigate(['/pages/checkout']);
+    
  }
 
 

@@ -26,20 +26,11 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { MenuComponent } from './menu/menu.component';
 import { OrderByPipe } from './pipes/order-by.pipe';
-import { ProductService } from './services/product.service';
-import { CartService } from './services/cart.service';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { BannersComponent } from './banners/banners.component';
-import { HeaderTwoComponent } from './header-two/header-two.component';
 import { ShoppingWidgetsComponent } from './shopping-widgets/shopping-widgets.component';
-import { HeaderThreeComponent } from './header-three/header-three.component';
-import { BannersFourComponent } from './banners-four/banners-four.component';
-import { BlogSectionComponent } from './blog-section/blog-section.component';
 import { BannerPromotionComponent } from './banner-promotion/banner-promotion.component';
-import { HeaderFourComponent } from './header-four/header-four.component';
-import { CategoriesMenuComponent } from './categories-menu/categories-menu.component';
-import { CategoriesSectionComponent } from './categories-section/categories-section.component';
-import { FooterTwoComponent } from './footer-two/footer-two.component';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -51,16 +42,8 @@ import { FooterTwoComponent } from './footer-two/footer-two.component';
     SidebarComponent,
     OrderByPipe,
     BannersComponent,
-    HeaderTwoComponent,
     ShoppingWidgetsComponent,
-    HeaderThreeComponent,
-    BannersFourComponent,
-    BlogSectionComponent,
     BannerPromotionComponent,
-    HeaderFourComponent,
-    CategoriesMenuComponent,
-    CategoriesSectionComponent,
-    FooterTwoComponent
   ],
   imports: [
     CommonModule,
@@ -84,6 +67,7 @@ import { FooterTwoComponent } from './footer-two/footer-two.component';
     MatDividerModule,
     MatCardModule,
     FlexLayoutModule,
+    FormsModule
   ],
   exports: [
     CommonModule,
@@ -112,21 +96,9 @@ import { FooterTwoComponent } from './footer-two/footer-two.component';
     SidebarComponent,
     BannersComponent,
     FlexLayoutModule,
-    HeaderTwoComponent,
-    HeaderThreeComponent,
-    HeaderFourComponent,
     ShoppingWidgetsComponent,
-    BannersFourComponent,
-    BlogSectionComponent,
-    BannerPromotionComponent,
-    CategoriesMenuComponent,
-    CategoriesSectionComponent,
-    FooterTwoComponent
-
+    BannerPromotionComponent
   ],
-  providers: [
-    ProductService,
-    CartService
-  ]
+  providers: []
 })
 export class SharedModule {}

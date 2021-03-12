@@ -9,14 +9,43 @@
   >
     <div class="logo">
       <a [routerLink]="['/home/one']" routerLinkActive="router-link-active"
-        ><img src="assets/images/logo-01.png"
+        ><img src="assets/images/logo-01.jpeg"
       /></a>
     </div>
     <div fxflexoffset.gt-sm="10" fxFlex class="search-form">
       <form class="search-form" fxLayout="row">
         <div class="form-wrap">
-          <input type="text" placeholder="Type to search..." />
-          <button class="btn-search" type="submit">Search</button>
+          <!-- <input type="text" placeholder="Type to search..." /> -->
+          <mat-form-field appearance="fill" class="ml-10">
+            <mat-label> Location</mat-label>
+            <mat-select [(value)]="selectedLocation">
+              <mat-option *ngFor="let location of locations" [value]="location">
+                {{ location }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="fill" class="ml-10">
+            <mat-label>Category</mat-label>
+            <mat-select [(value)]="selectedCategory">
+              <mat-option
+                *ngFor="let category of categories"
+                [value]="category"
+              >
+                {{ category }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field class="ml-10">
+            <input
+              matInput
+              placeholder="Tutor Name "
+              name="name"
+              [(ngModel)]="tutorName"
+            />
+          </mat-form-field>
+          <button class="btn-search" type="submit" (click)="Search()">
+            Search
+          </button>
         </div>
       </form>
     </div>
@@ -31,15 +60,15 @@
         fxLayout="row"
         fxLayoutAlign="space-between center"
       >
-      <div class="widget-text">
-        <a
-          fxShow="false"
-          fxShow.gt-xs
-          [routerLink]="['/register']"
-          routerLinkActive="router-link-active"
-          ><mat-icon>person</mat-icon>My Account</a
-        >
-      </div>
+        <div class="widget-text">
+          <a
+            fxShow="false"
+            fxShow.gt-xs
+            [routerLink]="['/register']"
+            routerLinkActive="router-link-active"
+            ><mat-icon>person</mat-icon>My Account</a
+          >
+        </div>
       </div>
     </div>
   </div>

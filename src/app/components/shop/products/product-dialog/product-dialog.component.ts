@@ -1,8 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { ProductService } from 'src/app/components/shared/services/product.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { Product } from 'src/app/modals/product.model';
-import { CartService } from 'src/app/components/shared/services/cart.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -18,17 +16,15 @@ export class ProductDialogComponent implements OnInit {
   public selectedColor      :   any = '';
   public selectedSize       :   any = '';
 
-  constructor(private router: Router, public productsService: ProductService, private cartService: CartService, public dialogRef: MatDialogRef<ProductDialogComponent>, @Inject(MAT_DIALOG_DATA) public product: Product) { }
+  constructor(private router: Router,  public dialogRef: MatDialogRef<ProductDialogComponent>, @Inject(MAT_DIALOG_DATA) public product: Product) { }
 
   ngOnInit() {
-    this.productsService.getProducts().subscribe(product => this.products = product);
 
   }
 
 
   public addToCart(product: Product, quantity) {
     if (quantity == 0) return false;
-    this.cartService.addToCart(product, parseInt(quantity));
   }
 
   public close(): void {
