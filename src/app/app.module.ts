@@ -32,6 +32,10 @@ import { ProductCarouselComponent } from './components/shop/home/product-carouse
 import { ProductVerticalComponent } from './components/shop/products/product-vertical/product-vertical.component';
 import { MyAccountComponent } from './components/pages/my-account/my-account.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { ContactComponent } from './components/pages/contact/contact.component';
+import { AboutUsComponent } from './components/pages/about-us/about-us.component';
+import { FaqComponent } from './components/pages/faq/faq.component';
+import { ErrorPageComponent } from './components/pages/error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +52,11 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     ProductVerticalComponent,
     ProductCarouselComponent,
     ProductZoomComponent,
-    MyAccountComponent
+    MyAccountComponent,
+    ContactComponent,
+     AboutUsComponent, 
+     FaqComponent,
+     ErrorPageComponent
   ],
   imports: [
     NgxSpinnerModule,
