@@ -4643,3 +4643,17 @@ span {
     margin-right: 40px;
   }
 }
+
+@media screen and (max-width: 768px) {
+  .logo a img {
+    width: 50px;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .logo a img {
+    width: 100px;
+    align-items: center;
+  }
+}

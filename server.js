@@ -2,6 +2,7 @@ const express= require("express");
 const app= express();
 const cors = require('cors');
 const multer = require('multer');
+const path = require('path');
 const mongoose= require('mongoose');
 mongoose.connect("mongodb+srv://aamir:aamir@nestjs.ayatn.mongodb.net/LMDS-db?retryWrites=true&w=majority")
 .then(()=>{console.log("Connected To mongodb")})
@@ -39,8 +40,8 @@ const upload = multer({storage:storage})
 
 app.use(cors({origin:"*"}))
 
-app.get('/',(req,res)=>{
-    res.send("Hello Aamir");
+app.get('/*',(req,res)=>{
+    res.sendFile(path.join(__dirname + '/dist/index.html'));
 })
 app.post('/insertPicture',jsonParser,upload.single('picture'),(req,res)=>{
     const file=req.file;
@@ -70,19 +71,19 @@ app.post('/insertTeacher',jsonParser,(req,res)=>{
     });
 });
 
-app.get('/allCategories',(req,res)=>{
+app.post('/allCategories',(req,res)=>{
     Teacher.find().select({category:1}).distinct("category").then(item=>{
         console.log(item);
         res.send(item);
     });
 });
-app.get('/allLocations',(req,res)=>{
+app.post('/allLocations',(req,res)=>{
     Teacher.find().select({location:1}).distinct("location").then(item=>{
         console.log(item);
         res.send(item);
     });
 });
-app.get('/topTeachers',(req,res)=>{
+app.post('/topTeachers',(req,res)=>{
     Teacher.find().sort({_id:1}).then(item=>{
         console.log(item);
         res.send(item);
@@ -163,4 +164,4 @@ app.post('/search',jsonParser,(req,res)=>{
     }
 });
 
-app.listen(4000, ()=>{console.log("Listening to 4000...")});
+app.listen(process.env.PORT || 4000, ()=>{console.log("Listening to 4000...")});

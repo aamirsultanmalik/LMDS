@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     debugger
-    this.http.get(env.apiUrl+"/topTeachers").subscribe(res=>{
+    this.http.post(env.apiUrl+"/topTeachers","").subscribe(res=>{
       debugger
       if(res){
         this.products=res;

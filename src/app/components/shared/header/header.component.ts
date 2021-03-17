@@ -25,13 +25,13 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.http.get(env.apiUrl+"/allCategories").subscribe(res=>{
+    this.http.post(env.apiUrl+"/allCategories","").subscribe(res=>{
       debugger
       if(res){
         this.categories=res;
       }
     });
-    this.http.get(env.apiUrl+"/allLocations").subscribe(res=>{
+    this.http.post(env.apiUrl+"/allLocations","").subscribe(res=>{
       debugger
       if(res){
         this.locations=res;

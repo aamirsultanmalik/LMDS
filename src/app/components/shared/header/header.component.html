@@ -2,21 +2,20 @@
   <div
     class="container"
     fxLayout="row"
-    fxLayout.sm="column"
-    fxLayout.xs="column"
+    fxLayout.sm="row"
+    fxLayout.xs="row"
     fxLayoutGap="20px"
     fxlayoutalign="space-between center"
   >
-    <div class="logo">
-      <a [routerLink]="['/home/one']" routerLinkActive="router-link-active"
+    <div class="logo" style="width: 10%">
+      <a [routerLink]="['/']" routerLinkActive="router-link-active"
         ><img src="assets/images/logo-01.jpeg"
       /></a>
     </div>
-    <div fxflexoffset.gt-sm="10" fxFlex class="search-form">
+    <div fxflexoffset.gt-sm="10" fxFlex class="search-form" style="width: 80%">
       <form class="search-form" fxLayout="row">
         <div class="form-wrap">
-          <!-- <input type="text" placeholder="Type to search..." /> -->
-          <mat-form-field appearance="fill" class="ml-10">
+          <mat-form-field appearance="fill" class="ml-10" style="width: 20%">
             <mat-label> Location</mat-label>
             <mat-select [(value)]="selectedLocation">
               <mat-option *ngFor="let location of locations" [value]="location">
@@ -24,7 +23,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field appearance="fill" class="ml-10">
+          <mat-form-field appearance="fill" class="ml-10" style="width: 20%">
             <mat-label>Category</mat-label>
             <mat-select [(value)]="selectedCategory">
               <mat-option
@@ -35,7 +34,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field class="ml-10">
+          <mat-form-field class="ml-10" style="width: 30%">
             <input
               matInput
               placeholder="Tutor Name "
@@ -54,6 +53,7 @@
       fxLayout="row"
       fxLayout.sm="row"
       fxLayoutAlign="center center"
+      style="width: 10%"
     >
       <div
         class="main-menu-wrapper-2"
@@ -73,6 +73,5 @@
     </div>
   </div>
 </div>
-<div class="menu-container1">
-  <!-- <app-menu></app-menu> -->
-</div>
+
+<div class="menu-container1"></div>
