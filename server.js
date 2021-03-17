@@ -41,7 +41,7 @@ const upload = multer({storage:storage})
 app.use(cors({origin:"*"}))
 
 app.get('/*',(req,res)=>{
-    res.sendFile(path.join(__dirname + '/dist/index.html'));
+    res.sendFile(path.join(__dirname + '/dist/ecommerce-sophia-new/index.html'));
 })
 app.post('/insertPicture',jsonParser,upload.single('picture'),(req,res)=>{
     const file=req.file;
