@@ -14,6 +14,7 @@ export class MyAccountComponent implements OnInit {
   teacherObj: Teacher;
   url:string;
   uploadRes:any;
+  options=["Yes","No"]
   constructor(private http: HttpClient,public snackBar: MatSnackBar,private router: Router) { }
 
   ngOnInit() {
@@ -103,6 +104,11 @@ export class Teacher{
   lastname : string;
   location: string;
   category: string;
+  password: string;
+  email: string;
+  covidVaccine: string;
+  FireExtinguisherTrained: string;
+  safeSleepClass: string;
   picture:any;
   cprCard:any;
   dcfTranscript:any;

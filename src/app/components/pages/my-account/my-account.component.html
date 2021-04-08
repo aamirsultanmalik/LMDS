@@ -87,6 +87,33 @@
                 <mat-form-field class="w-100">
                   <input
                     matInput
+                    placeholder="Email (required)"
+                    #email="ngModel"
+                    ngModel
+                    name="email"
+                    [(ngModel)]="teacherObj.email"
+                    required
+                  />
+                  <mat-error *ngIf="email.invalid">Email is required</mat-error>
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                  <input
+                    matInput
+                    type="password"
+                    placeholder="Password (required)"
+                    #password="ngModel"
+                    ngModel
+                    name="password"
+                    [(ngModel)]="teacherObj.password"
+                    required
+                  />
+                  <mat-error *ngIf="password.invalid"
+                    >Password is required</mat-error
+                  >
+                </mat-form-field>
+                <mat-form-field class="w-100">
+                  <input
+                    matInput
                     placeholder="Location (required)"
                     #location="ngModel"
                     ngModel
@@ -111,6 +138,42 @@
                   <mat-error *ngIf="category.invalid"
                     >Category is required</mat-error
                   >
+                </mat-form-field>
+                <mat-label> Covid Vaccine </mat-label>
+                <mat-form-field
+                  appearance="fill"
+                  class="ml-10 w-100"
+                  style="width: 20%"
+                >
+                  <mat-select [(value)]="teacherObj.covidVaccine">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-label> Fire Extinguisher Trained </mat-label>
+                <mat-form-field
+                  appearance="fill"
+                  class="ml-10 w-100"
+                  style="width: 20%"
+                >
+                  <mat-select [(value)]="teacherObj.FireExtinguisherTrained">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <mat-label> Safe Sleep Class </mat-label>
+                <mat-form-field
+                  appearance="fill"
+                  class="ml-10 w-100"
+                  style="width: 20%"
+                >
+                  <mat-select [(value)]="teacherObj.safeSleepClass">
+                    <mat-option *ngFor="let option of options" [value]="option">
+                      {{ option }}
+                    </mat-option>
+                  </mat-select>
                 </mat-form-field>
                 <label for="singleFile">Picture</label>
                 <br />
