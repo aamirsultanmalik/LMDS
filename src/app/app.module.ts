@@ -36,6 +36,8 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { AboutUsComponent } from './components/pages/about-us/about-us.component';
 import { FaqComponent } from './components/pages/faq/faq.component';
 import { ErrorPageComponent } from './components/pages/error-page/error-page.component';
+import { TermConditionsComponent } from './components/pages/term-conditions/term-conditions.component';
+import { ClientLoginComponent } from './components/pages/client-login/client-login.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { ErrorPageComponent } from './components/pages/error-page/error-page.com
     ContactComponent,
      AboutUsComponent, 
      FaqComponent,
-     ErrorPageComponent
+     ErrorPageComponent,
+     TermConditionsComponent,
+     ClientLoginComponent
   ],
   imports: [
     NgxSpinnerModule,

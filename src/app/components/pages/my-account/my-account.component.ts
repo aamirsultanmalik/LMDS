@@ -38,7 +38,6 @@ export class MyAccountComponent implements OnInit {
     }
   }
   Submit(){
-    debugger;
     this.UploadPicture();
     
     

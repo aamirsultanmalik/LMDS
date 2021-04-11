@@ -5,6 +5,8 @@ import { MyAccountComponent } from './my-account/my-account.component';
 import { AboutUsComponent } from './about-us/about-us.component';
 import { FaqComponent } from './faq/faq.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { TermConditionsComponent } from './term-conditions/term-conditions.component';
+import { ClientLoginComponent } from './client-login/client-login.component';
 
 
 
@@ -17,6 +19,7 @@ const routes: Routes = [
       { path: 'faq', component: FaqComponent },
       { path: 'contact', component: ContactComponent },
       { path: 'my-account', component: MyAccountComponent },
+      
       { path: 'error', component: ErrorPageComponent },
     ]
   }
