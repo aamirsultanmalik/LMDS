@@ -114,20 +114,6 @@
                 <mat-form-field class="w-100">
                   <input
                     matInput
-                    placeholder="Location (required)"
-                    #location="ngModel"
-                    ngModel
-                    name="location"
-                    [(ngModel)]="teacherObj.location"
-                    required
-                  />
-                  <mat-error *ngIf="location.invalid"
-                    >Location is required</mat-error
-                  >
-                </mat-form-field>
-                <mat-form-field class="w-100">
-                  <input
-                    matInput
                     placeholder="Category (required)"
                     #category="ngModel"
                     ngModel
@@ -139,6 +125,25 @@
                     >Category is required</mat-error
                   >
                 </mat-form-field>
+                <mat-label> Location </mat-label>
+                <mat-form-field
+                  appearance="fill"
+                  class="ml-10 w-100"
+                  style="width: 20%"
+                >
+                  <mat-select [(value)]="teacherObj.location">
+                    <mat-option
+                      *ngFor="let option of locations"
+                      [value]="option.zip"
+                    >
+                      {{ option.location }}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+                <!-- <mat-error *ngIf="location.invalid"
+                    >Location is required</mat-error
+                  > -->
+
                 <mat-label> Covid Vaccine </mat-label>
                 <mat-form-field
                   appearance="fill"
@@ -233,6 +238,27 @@
                 />
                 <br />
                 <br />
+
+                <mat-radio-group aria-label="Select an option">
+                  <mat-radio-button
+                    class="example-radio-group"
+                    value="CDA"
+                    (change)="radioChange($event)"
+                    >CDA</mat-radio-button
+                  >
+                  <mat-radio-button
+                    class="example-radio-group"
+                    value="Driector Credentials"
+                    (change)="radioChange($event)"
+                    >Driector Credentials</mat-radio-button
+                  >
+                  <mat-radio-button
+                    class="example-radio-group"
+                    value="45 hours"
+                    (change)="radioChange($event)"
+                    >45 hours</mat-radio-button
+                  >
+                </mat-radio-group>
 
                 <!-- <mat-file-upload-queue
                   #fileUploadQueueDCF

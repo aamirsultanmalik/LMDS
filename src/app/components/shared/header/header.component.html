@@ -23,7 +23,7 @@
               </mat-option>
             </mat-select>
           </mat-form-field>
-          <mat-form-field appearance="fill" class="ml-10" style="width: 20%">
+          <!-- <mat-form-field appearance="fill" class="ml-10" style="width: 20%">
             <mat-label>Category</mat-label>
             <mat-select [(value)]="selectedCategory">
               <mat-option
@@ -33,16 +33,21 @@
                 {{ category }}
               </mat-option>
             </mat-select>
-          </mat-form-field>
+          </mat-form-field> -->
           <mat-form-field class="ml-10" style="width: 30%">
             <input
               matInput
-              placeholder="Tutor Name "
-              name="name"
+              placeholder="Zip code "
+              name="zip"
               [(ngModel)]="tutorName"
             />
           </mat-form-field>
-          <button class="btn-search" type="submit" (click)="Search()">
+          <button
+            class="btn-search"
+            type="submit"
+            (click)="Search()"
+            style="margin-left: 10px; position: static"
+          >
             Search
           </button>
         </div>
@@ -60,13 +65,22 @@
         fxLayout="row"
         fxLayoutAlign="space-between center"
       >
-        <div class="widget-text">
+        <div class="widget-text" style="margin-left: -185%">
           <a
             fxShow="false"
             fxShow.gt-xs
             [routerLink]="['/register']"
             routerLinkActive="router-link-active"
-            ><mat-icon>person</mat-icon>Register</a
+            ><mat-icon>person</mat-icon>Register as teacher</a
+          >
+        </div>
+        <div class="widget-text">
+          <a
+            fxShow="false"
+            fxShow.gt-xs
+            [routerLink]="['/client-login']"
+            routerLinkActive="router-link-active"
+            ><mat-icon>person</mat-icon>Register as client</a
           >
         </div>
       </div>

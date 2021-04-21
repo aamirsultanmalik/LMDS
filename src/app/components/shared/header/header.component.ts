@@ -40,6 +40,7 @@ export class HeaderComponent implements OnInit {
   }
 
   Search(){
+    debugger
     let searchParams= new Object({
       location: this.selectedLocation,
       category:this.selectedCategory,

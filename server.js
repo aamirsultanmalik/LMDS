@@ -25,6 +25,7 @@ const teacherSchema = new mongoose.Schema({
     picture: String,
     cprCard: String,
     dcfTranscript: String,
+    CDA: String,
 });
 const Teacher = mongoose.model('Teacher',teacherSchema);
 
@@ -74,7 +75,8 @@ app.post('/insertTeacher',jsonParser,(req,res)=>{
         location: teacherObj.location,
         picture: teacherObj.picture,
         cprCard: teacherObj.cprCard,
-        dcfTranscript: teacherObj.dcfTranscript 
+        dcfTranscript: teacherObj.dcfTranscript,
+        CDA: teacherObj.CDA 
     });
     teacher.save().then(item=>{
         res.send(item);
@@ -109,7 +111,7 @@ app.post('/search',jsonParser,(req,res)=>{
             res.send(item);
         });
     }
-    if(searchBody.location!=='' 
+    else if(searchBody.location!=='' 
     && searchBody.category!=='' 
     && searchBody.tutorName==''){
         Teacher.find({$or:[{location:searchBody.location},{category:searchBody.category}]}).then(item=>{
@@ -117,18 +119,19 @@ app.post('/search',jsonParser,(req,res)=>{
         });
         
     }
-    if(searchBody.location!=='' 
+    else if(searchBody.location!=='' 
     && searchBody.tutorName!==''
     && searchBody.category==''){
         Teacher.find({$or:[
-        {firstname:/searchBody.tutorName/},
-        {lastname:/searchBody.tutorName/},
-        {location:searchBody.location}
+        // {firstname:/searchBody.tutorName/},
+        // {lastname:/searchBody.tutorName/},
+
+        {location:searchBody.tutorName}
     ]}).then(item=>{
         res.send(item);
     });
     }
-    if(searchBody.location=='' 
+    else if(searchBody.location=='' 
     && searchBody.category!=='' 
     && searchBody.tutorName==''){
         Teacher.find({category:searchBody.category}).then(item=>{
@@ -136,41 +139,61 @@ app.post('/search',jsonParser,(req,res)=>{
         });
         
     }
-    if(searchBody.location!=='' 
+    else if(searchBody.location!=='' 
     && searchBody.category!=='' 
     && searchBody.tutorName==''){
         Teacher.find({$or:[
-            {firstname:/searchBody.tutorName/},
-            {lastname:/searchBody.tutorName/}
+            // {firstname:/searchBody.tutorName/},
+            // {lastname:/searchBody.tutorName/}
+        {location:searchBody.tutorName}
         ]}).then(item=>{
             res.send(item);
         });
         
     }
-    if(searchBody.location==''
+    else if(searchBody.location==''
     && searchBody.category!=='' 
     && searchBody.tutorName!==''  ){
         Teacher.find({$or:[
-            {firstname:/searchBody.tutorName/},
-            {lastname:/searchBody.tutorName/},
-            {category:searchBody.category}
+            // {firstname:/searchBody.tutorName/},
+            // {lastname:/searchBody.tutorName/},
+            // {category:searchBody.category}
+            
+        {location:searchBody.tutorName}
         ]}).then(item=>{
             res.send(item);
         });
         
     }
-    if(searchBody.location!=='' 
+    else if(searchBody.location!=='' 
     && searchBody.category!==''
     && searchBody.tutorName!=='' ){
         Teacher.find({$or:[
-            {firstname:/searchBody.tutorName/},
-            {lastname:/searchBody.tutorName/},
-            {category:searchBody.category},
-            {location:searchBody.location}
+            // {firstname:/searchBody.tutorName/},
+            // {lastname:/searchBody.tutorName/},
+            // {category:searchBody.category},
+            
+        {location:searchBody.tutorName},
         ]}).then(item=>{
             res.send(item);
         });
         
+    }
+    else if(searchBody.location=='' 
+    && searchBody.category==''
+    && searchBody.tutorName!=='' ){
+        Teacher.find({$or:[
+            // {firstname:/searchBody.tutorName/},
+            // {lastname:/searchBody.tutorName/},
+            // {category:searchBody.category},
+            
+        {location:searchBody.tutorName},
+        ]}).then(item=>{
+            res.send(item);
+        });
+        
+    }else{
+        res.send(result);
     }
 });
 
