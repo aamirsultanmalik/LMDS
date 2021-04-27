@@ -65,22 +65,22 @@
         fxLayout="row"
         fxLayoutAlign="space-between center"
       >
-        <div class="widget-text" style="margin-left: -185%">
+        <div class="widget-text" style="margin-left: -10%; cursor: pointer">
           <a
             fxShow="false"
             fxShow.gt-xs
             [routerLink]="['/register']"
             routerLinkActive="router-link-active"
-            ><mat-icon>person</mat-icon>Register as teacher</a
+            ><mat-icon>person</mat-icon>Register teacher</a
           >
         </div>
-        <div class="widget-text">
+        <div class="widget-text" style="cursor: pointer">
           <a
             fxShow="false"
             fxShow.gt-xs
             [routerLink]="['/client-login']"
             routerLinkActive="router-link-active"
-            ><mat-icon>person</mat-icon>Register as client</a
+            ><mat-icon>person</mat-icon>Register client</a
           >
         </div>
       </div>

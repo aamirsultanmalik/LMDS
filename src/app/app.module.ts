@@ -38,6 +38,7 @@ import { FaqComponent } from './components/pages/faq/faq.component';
 import { ErrorPageComponent } from './components/pages/error-page/error-page.component';
 import { TermConditionsComponent } from './components/pages/term-conditions/term-conditions.component';
 import { ClientLoginComponent } from './components/pages/client-login/client-login.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { ClientLoginComponent } from './components/pages/client-login/client-log
     FlexLayoutModule,
     NgxPaginationModule,
     NgxImageZoomModule.forRoot(), // <-- Add this line
-    MatSnackBarModule
+    MatSnackBarModule,
+    PdfViewerModule
 
   ],
   providers: [],
