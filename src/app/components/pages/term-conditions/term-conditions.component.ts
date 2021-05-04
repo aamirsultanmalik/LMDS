@@ -11,7 +11,7 @@ export class TermConditionsComponent implements OnInit {
 
   pdfSource:any;
   ngOnInit(): void {
-    this.pdfSource="/assets/data/Attachment_1618788555.pdf"
+    this.pdfSource="/assets/data/agreement.pdf"
   }
 
 }

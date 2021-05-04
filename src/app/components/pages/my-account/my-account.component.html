@@ -41,12 +41,11 @@
           fxFlex.md="50"
         >
           <div class="title">
-            <h3>Register</h3>
+            <h3>Teacher Register</h3>
           </div>
           <div class="register-body">
             <p>
-              Create new account today to reap the benefits of a personalized
-              shopping experience.
+              lets create your teacher account
             </p>
             <form fxLayout="row wrap">
               <div
@@ -250,7 +249,7 @@
                     class="example-radio-group"
                     value="Driector Credentials"
                     (change)="radioChange($event)"
-                    >Driector Credentials</mat-radio-button
+                    >Director Credentials</mat-radio-button
                   >
                   <mat-radio-button
                     class="example-radio-group"
@@ -276,13 +275,11 @@
               </div>
 
               <p>
-                Your personal data will be used to support your experience
-                throughout this website, to manage access to your account, and
-                for other purposes described in our
+                Please Read
                 <a
                   [routerLink]="['/terms']"
                   routerLinkActive="router-link-active"
-                  >privacy policy</a
+                  >terms and condition</a
                 >.
               </p>
               <div
@@ -292,7 +289,15 @@
                 ngClass.sm="mt-1"
                 ngClass.xs="mt-1"
               >
+
+                <form (ngSubmit)="boxChecked()">
+                <input type="checkbox" id="vehicle3" name="privacyPolicyCheck" value="Boat">
+                <label for="vehicle3"> By checking this box you agree to the terms and condition of this agreement.</label><br>
+                </form>
+
+                <br>
                 <button
+                  disabled = false
                   class="btn-project"
                   mat-raised-button
                   color="accent"

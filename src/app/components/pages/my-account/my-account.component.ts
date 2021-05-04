@@ -134,8 +134,8 @@ export class MyAccountComponent implements OnInit {
   Submit(){
     debugger
     this.UploadPicture();
-    
-    
+
+
   }
 
   UploadPicture(){
@@ -149,7 +149,7 @@ export class MyAccountComponent implements OnInit {
         this.UploadDCF()
       }
     });
-    
+
   }
   UploadDCF(){
     const formData= new FormData();
@@ -185,6 +185,17 @@ export class MyAccountComponent implements OnInit {
   radioChange(event){
     debugger
     this.teacherObj.CDA= event.value;
+  }
+
+  clientAgree = false;
+
+  boxChecked(){
+    if(this.clientAgree==false){
+      this.clientAgree = true;
+    }else{
+      this.clientAgree = false;
+    }
+
   }
 
 }

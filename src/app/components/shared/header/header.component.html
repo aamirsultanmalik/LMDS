@@ -18,8 +18,8 @@
           <mat-form-field appearance="fill" class="ml-10" style="width: 20%">
             <mat-label> Location</mat-label>
             <mat-select [(value)]="selectedLocation">
-              <mat-option *ngFor="let location of locations" [value]="location">
-                {{ location }}
+              <mat-option *ngFor="let locations of locations" [value]="locations">
+                {{ locations.location }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -46,8 +46,7 @@
             class="btn-search"
             type="submit"
             (click)="Search()"
-            style="margin-left: 10px; position: static"
-          >
+            style="margin-left: 10px; position: static">
             Search
           </button>
         </div>
@@ -58,31 +57,36 @@
       fxLayout="row"
       fxLayout.sm="row"
       fxLayoutAlign="center center"
-      style="width: 10%"
-    >
+      style="width: 10%">
       <div
         class="main-menu-wrapper-2"
         fxLayout="row"
-        fxLayoutAlign="space-between center"
-      >
-        <div class="widget-text" style="margin-left: -10%; cursor: pointer">
-          <a
-            fxShow="false"
-            fxShow.gt-xs
-            [routerLink]="['/register']"
-            routerLinkActive="router-link-active"
-            ><mat-icon>person</mat-icon>Register teacher</a
-          >
-        </div>
-        <div class="widget-text" style="cursor: pointer">
+        fxLayoutAlign="space-between center">
+
+        <button
+          class="btn-search"
+          type="submit"
+          style="margin-left: 10px; position: static">
+            <a
+              fxShow="false"
+              fxShow.gt-xs
+              [routerLink]="['/register']"
+              routerLinkActive="router-link-active"
+            ><mat-icon>person</mat-icon>Register teacher</a>
+        </button>
+
+        <button
+          class="btn-search"
+          type="submit"
+          style="margin-left: 10px; position: static">
+
           <a
             fxShow="false"
             fxShow.gt-xs
             [routerLink]="['/client-login']"
             routerLinkActive="router-link-active"
-            ><mat-icon>person</mat-icon>Register client</a
-          >
-        </div>
+            ><mat-icon>person</mat-icon>Register client</a>
+        </button>
       </div>
     </div>
   </div>
